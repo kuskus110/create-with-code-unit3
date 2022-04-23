@@ -424,6 +424,8 @@ GameObject:
   - component: {fileID: 835818921}
   - component: {fileID: 835818920}
   - component: {fileID: 835818922}
+  - component: {fileID: 835818923}
+  - component: {fileID: 835818924}
   m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
@@ -508,9 +510,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a688c2fa04bca654ebeb1fdc8fe40bf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useGameSpeed: 1
-  speed: 20
+  useGameSpeed: 0
+  speed: 15
   direction: {x: -1, y: 0, z: 0}
+  onlyOnGamePlaying: 1
+--- !u!114 &835818923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835818919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 110991484adb84747b9418fb22ced738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &835818924
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835818919}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 112.79999, y: 18.836718, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1490149404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -717,7 +745,6 @@ MonoBehaviour:
   jumpForce: 20
   fallVelocityMultiplier: 2.5
   lowJumpVelocityMultiplier: 2
-  gravityMultiplier: 4
 --- !u!54 &1733868374
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -747,6 +774,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.66, y: 3, z: 1}
   m_Center: {x: 0, y: 1.51, z: 0}
+--- !u!114 &1733868378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733868372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51e49bd1c0dd1294ab082890e3c2f9b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1734943280
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,6 +796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1734943282}
   - component: {fileID: 1734943281}
+  - component: {fileID: 1734943283}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -792,6 +832,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1734943283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1734943280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc110400f8678e438bae365e0004ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclesSpawner: {fileID: 524277972}
 --- !u!1 &2014335011
 GameObject:
   m_ObjectHideFlags: 0

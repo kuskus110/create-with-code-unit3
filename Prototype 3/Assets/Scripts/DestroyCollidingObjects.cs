@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
+[RequireComponent(typeof(Collider))]
 public class DestroyCollidingObjects : MonoBehaviour
 {
     #region Variables

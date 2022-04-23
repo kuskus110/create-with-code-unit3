@@ -7,11 +7,10 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 20f;
     public float fallVelocityMultiplier = 2.5f;
     public float lowJumpVelocityMultiplier = 2f;
-    public float gravityMultiplier = 4f;
 
     Rigidbody rb;
     bool shouldJump = false;
-    bool jumpButtonPressed = false;
+    bool jumpButtonDown = false;
     bool isGrounded = true;
     Vector3 fallGravity;
     Vector3 lowJumpGravity;
@@ -22,16 +21,15 @@ public class PlayerController : MonoBehaviour
 
     void Awake() {
         rb = GetComponent<Rigidbody>();
-        Physics.gravity *= gravityMultiplier;
         fallGravity = (fallVelocityMultiplier - 1) * Physics.gravity;
         lowJumpGravity = (lowJumpVelocityMultiplier - 1) * Physics.gravity;
     }
 
     void Update() {
-        if (Input.GetButtonDown(JumpButtonName) && isGrounded) {
+        if (Input.GetButtonDown(JumpButtonName) && isGrounded && GameController.IsPlaying) {
             shouldJump = true;
         }
-        jumpButtonPressed = Input.GetButton(JumpButtonName);
+        jumpButtonDown = Input.GetButton(JumpButtonName);
     }
 
     void FixedUpdate() {
@@ -39,9 +37,9 @@ public class PlayerController : MonoBehaviour
             Jump();
             shouldJump = false;
         }
-        if (rb.velocity.y <= .5f && rb.velocity.y != 0) {
+        if (rb.velocity.y < 0) {
             ApplyFallGravity();
-        } else if (rb.velocity.y > 0 && !jumpButtonPressed) {
+        } else if (rb.velocity.y > 0 && !jumpButtonDown) {
             ApplyLowJumpGravity();
         }
     }

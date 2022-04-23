@@ -3,17 +3,15 @@ using UnityEngine;
 public class GameSpeed : MonoBehaviour
 {
     #region Variables
-    public static float CurrentGameSpeed {get; set;}
+    public static float CurrentGameSpeed;
     public float startingSpeed = 20f;
     [Tooltip("Increase the game speed every second by this value")]
     public float accelerationOverTime = 1f;
     #endregion
 
-    void Awake() {
-        CurrentGameSpeed = startingSpeed;
-    }
-
     void Update() {
-        CurrentGameSpeed += accelerationOverTime * Time.deltaTime;
+        if (GameController.IsPlaying) {
+            CurrentGameSpeed += accelerationOverTime * Time.deltaTime;
+        }
     }
 }

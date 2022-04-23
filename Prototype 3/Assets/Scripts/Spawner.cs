@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour
 
     void Update() {
         spawnCooldown -= Time.deltaTime;
-        if (spawnCooldown <= 0 && prefabs.Any()) {
+        if (spawnCooldown <= 0 && GameController.IsPlaying && prefabs.Any()) {
             SetRandomSpawnCooldown();
             SpawnRandomPrefab();
         }
