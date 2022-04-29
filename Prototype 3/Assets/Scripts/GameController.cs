@@ -35,19 +35,16 @@ public class GameController : MonoBehaviour
     }
 
     void StartGame() {
-        print("start");
         GameSpeed.CurrentGameSpeed = gameSpeed.startingSpeed;
         CurrGameMode = GameMode.Playing;
     }
     
     public static void EndGame() {
-        print("end");
         GameSpeed.CurrentGameSpeed = 0;
         CurrGameMode = GameMode.Gameover;
     }
 
     void ResetGame() {
-        print("reset");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
