@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
 
     void LateUpdate()
     {
-        if (Input.GetButtonDown("Jump")) {
+        if (Input.GetButtonDown(Consts.JumpButtonName)) {
             switch (CurrGameMode) {
                 case GameMode.Pregame:
                     StartGame();

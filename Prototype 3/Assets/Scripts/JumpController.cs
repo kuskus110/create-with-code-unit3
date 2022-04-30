@@ -13,7 +13,6 @@ public class JumpController : MonoBehaviour
     Vector3 fallGravity;
     Vector3 lowJumpGravity;
 
-    const string JumpButtonName = "Jump";
     #endregion
 
     void Awake()
@@ -25,7 +24,7 @@ public class JumpController : MonoBehaviour
     }
 
     void Update() {
-        isJumpButtonDown = Input.GetButton("Jump");
+        isJumpButtonDown = Input.GetButton(Consts.JumpButtonName);
     }
 
     void FixedUpdate()
