@@ -52,7 +52,7 @@ public class PlayerManager : MonoBehaviour
             if (GameController.IsPlaying) {
                 particles.PlayRunParticles();
             }
-        } else if (collision.collider.CompareTag(Consts.ObstacleTag)) {
+        } else if (collision.collider.CompareTag(Consts.ObstacleTag) && GameController.IsPlaying) {
             GameController.EndGame();
             animations.PlayDeathAnimation();
             sounds.PlayCrashSound();
