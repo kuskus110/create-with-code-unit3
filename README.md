@@ -1,7 +1,7 @@
 # Forest Run
 A small side-scrolling game, made with Unity, as a part of my game dev learing process.
 
-<!-- [My game on Unity Play](https://play.unity.com/mg/other/) -->
+[My game on Unity Play](https://play.unity.com/mg/other/webgl-builds-187884)
 
 ## Description
 I made this game as a part of the "[Create with code 2](https://learn.unity.com/project/unit-3-sound-and-effects)" course on Unity Learn website.
