@@ -8,11 +8,15 @@ public class GameController : MonoBehaviour
     public enum GameMode {Pregame, Playing, Gameover};
     public static GameMode CurrGameMode;
     public Spawner obstaclesSpawner;
+    public Rigidbody playerRb;
+    public AudioClip ingameMusic;
     
     GameSpeed gameSpeed;
+    AudioSource audioSource;
     #endregion
 
     void Awake() {
+        audioSource = GetComponent<AudioSource>();
         gameSpeed = GetComponent<GameSpeed>();
     }
 
@@ -37,6 +41,9 @@ public class GameController : MonoBehaviour
     void StartGame() {
         GameSpeed.CurrentGameSpeed = gameSpeed.startingSpeed;
         CurrGameMode = GameMode.Playing;
+        playerRb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ;
+        audioSource.clip = ingameMusic;
+        audioSource.Play();
     }
     
     public static void EndGame() {

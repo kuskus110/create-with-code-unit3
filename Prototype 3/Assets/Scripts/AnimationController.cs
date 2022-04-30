@@ -36,4 +36,16 @@ public class AnimationController : MonoBehaviour
     public void StopSprintAnimation() {
         animator.SetFloat(SprintSpeedMultiplier, 1);
     }
+
+    void OnAnimatorMove()
+    {
+        var stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        if (stateInfo.IsTag("Walk Entry")) {
+            Vector3 pos = transform.position;
+            Vector3 endPos = pos;
+            endPos.x += 5;
+            transform.position = Vector3.Lerp(pos, endPos, Time.deltaTime);
+            // animator.ApplyBuiltinRootMotion();  // this didn't work so I handled the motion manually
+        }
+    }
 }
