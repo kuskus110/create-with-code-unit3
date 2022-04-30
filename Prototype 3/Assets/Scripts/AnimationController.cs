@@ -6,6 +6,7 @@ public class AnimationController : MonoBehaviour
     Animator animator;
 
     const string JumpTrigger = "Jump_trig";
+    const string SprintSpeedMultiplier = "SprintSpeedMultiplier_f";
     const string SpeedParam = "Speed_f";
     const string DeathParam = "Death_b";
     #endregion
@@ -26,5 +27,13 @@ public class AnimationController : MonoBehaviour
 
     public void PlayDeathAnimation() {
         animator.SetBool(DeathParam, true);
+    }
+
+    public void PlaySprintAnimation(float sprintSpeedMultiplier) {
+        animator.SetFloat(SprintSpeedMultiplier, sprintSpeedMultiplier);
+    }
+
+    public void StopSprintAnimation() {
+        animator.SetFloat(SprintSpeedMultiplier, 1);
     }
 }

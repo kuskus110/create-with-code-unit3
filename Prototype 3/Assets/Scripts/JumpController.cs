@@ -4,6 +4,7 @@ using UnityEngine;
 public class JumpController : MonoBehaviour
 {
     #region Variables
+    public int allowedAirJumps = 1;
     public float jumpForce = 20f;
     public float fallVelocityMultiplier = 2.5f;
     public float lowJumpVelocityMultiplier = 2f;
@@ -37,7 +38,8 @@ public class JumpController : MonoBehaviour
     }
 
     public void Jump() {
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+        // rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+        rb.velocity = Vector3.up * jumpForce;
     }
     
     void ApplyFallGravity() {

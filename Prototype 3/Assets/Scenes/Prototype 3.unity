@@ -1156,9 +1156,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 560d93a50a1480d4e86220a3d7b4d0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allowedAirJumps: 1
   jumpForce: 20
   fallVelocityMultiplier: 2.5
   lowJumpVelocityMultiplier: 2
+--- !u!114 &1733868383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733868372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 755a269e2a8e3f246b598926be96b196, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSpeedMultiplier: 1.75
+  animationSpeedMultiplier: 3
 --- !u!1 &1734943280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,7 +1205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingSpeed: 20
-  accelerationOverTime: 1
+  accelerationOverTime: 0.5
 --- !u!4 &1734943282
 Transform:
   m_ObjectHideFlags: 0
