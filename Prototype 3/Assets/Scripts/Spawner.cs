@@ -10,7 +10,12 @@ public class Spawner : MonoBehaviour
     public List<GameObject> prefabs;
 
     float spawnCooldown = 2f;
+    bool prefabsListNotEmpty;
     #endregion
+
+    void Awake() {
+        prefabsListNotEmpty = prefabs.Count > 0;
+    }
 
     void Start() {
         SetRandomSpawnCooldown();
@@ -18,7 +23,7 @@ public class Spawner : MonoBehaviour
 
     void Update() {
         spawnCooldown -= Time.deltaTime;
-        if (spawnCooldown <= 0 && GameController.IsPlaying && prefabs.Any()) {
+        if (spawnCooldown <= 0 && GameController.IsPlaying && prefabsListNotEmpty) {
             SetRandomSpawnCooldown();
             SpawnRandomPrefab();
         }

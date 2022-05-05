@@ -15,7 +15,7 @@ public class DestroyCollidingObjects : MonoBehaviour
     #endregion
 
     void Awake() {
-        whitelistNotEmpty = gameTagWhitelist.Any();
+        whitelistNotEmpty = gameTagWhitelist.Count > 0;
     }
 
     void OnTriggerEnter(Collider other) {
