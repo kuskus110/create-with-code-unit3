@@ -1,5 +1,5 @@
 # Forest Run
-A small side-scrolling game, made with Unity, as a part of my game dev learing process.
+A small side-scrolling game, made with Unity, as a part of my game dev learning process.
 
 [My game on Unity Play](https://play.unity.com/mg/other/webgl-builds-187884)
 
