@@ -10,7 +10,6 @@ public class PlayerManager : MonoBehaviour
 
     enum Action {Idle, Jump, StartSlide, StopSlide};
     Action nextAction;
-    // bool shouldJump;
     int maxAllowedJumps;
     int currJumpsCounter;
     JumpController jumpController;
@@ -22,7 +21,6 @@ public class PlayerManager : MonoBehaviour
 
 
     void Awake() {
-        // shouldJump = false;
         nextAction = Action.Idle;
         playerState = State.Running;
         jumpController = GetComponent<JumpController>();
@@ -37,7 +35,6 @@ public class PlayerManager : MonoBehaviour
     void Update() {
         if (GameController.IsPlaying) {
             if (Input.GetButtonDown(Consts.JumpButtonName) && currJumpsCounter < maxAllowedJumps) {
-                // shouldJump = true;
                 nextAction = Action.Jump;
             } else if (Input.GetButtonDown(Consts.SlideButtonName) && playerState == State.Running) {
                 nextAction = Action.StartSlide;
@@ -53,7 +50,6 @@ public class PlayerManager : MonoBehaviour
         {
             case Action.Jump:
                 Jump();
-                // shouldJump = false;
                 nextAction = Action.Idle;
                 break;
             case Action.StartSlide:
