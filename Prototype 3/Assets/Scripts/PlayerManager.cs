@@ -33,16 +33,15 @@ public class PlayerManager : MonoBehaviour
     }
 
     void Update() {
-        if (GameController.IsPlaying) {
-            if (Input.GetButtonDown(Consts.JumpButtonName) && currJumpsCounter < maxAllowedJumps) {
-                nextAction = Action.Jump;
-            } else if (Input.GetButtonDown(Consts.SlideButtonName) && playerState == State.Running) {
-                nextAction = Action.StartSlide;
-            } else if (Input.GetButtonUp(Consts.SlideButtonName) && playerState == State.Sliding) {
-                nextAction = Action.StopSlide;
-            }
-        }
-        
+        // if (GameController.IsPlaying) {
+        //     if (Input.GetButtonDown(Consts.JumpButtonName) && currJumpsCounter < maxAllowedJumps) {
+        //         nextAction = Action.Jump;
+        //     } else if (Input.GetButtonDown(Consts.SlideButtonName) && playerState == State.Running) {
+        //         nextAction = Action.StartSlide;
+        //     } else if (Input.GetButtonUp(Consts.SlideButtonName) && playerState == State.Sliding) {
+        //         nextAction = Action.StopSlide;
+        //     }
+        // }
     }
 
     void FixedUpdate() {
@@ -81,13 +80,13 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void StopSlide()
+    void StopSlide()
     {
         slideController.StopSliding();
         playerState = State.Running;
     }
 
-    private void StartSlide()
+    void StartSlide()
     {
         slideController.StartSliding();
         playerState = State.Sliding;
@@ -101,5 +100,23 @@ public class PlayerManager : MonoBehaviour
         particles.StopRunParticles();
         animations.PlayJumpAnimation();
         sounds.PlayJumpSound();
+    }
+
+    public void JumpButtonDown() {
+        if (GameController.IsPlaying && currJumpsCounter < maxAllowedJumps) {
+            nextAction = Action.Jump;
+        }
+    }
+
+    public void SlideButtonDown() {
+        if (GameController.IsPlaying && playerState == State.Running) {
+            nextAction = Action.StartSlide;
+        }
+    }
+
+    public void SlideButtonUp() {
+        if (GameController.IsPlaying && playerState == State.Sliding) {
+            nextAction = Action.StopSlide;
+        }
     }
 }
