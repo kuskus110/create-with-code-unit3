@@ -19,10 +19,10 @@ public class SprintAbillity : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown(Consts.SprintButtonName) && PlayerManager.IsGrounded && GameController.IsPlaying) {
+        if (Input.GetButtonDown(Consts.SprintButtonName) && PlayerManager.playerState == PlayerManager.State.Running && GameController.IsPlaying) {
             StartSprint();
         }
-        else if (Input.GetButtonUp(Consts.SprintButtonName) || (!PlayerManager.IsGrounded && isSprinting)) {
+        else if (Input.GetButtonUp(Consts.SprintButtonName) || (PlayerManager.playerState != PlayerManager.State.Running && isSprinting)) {
             StopSprint();
         }
     }

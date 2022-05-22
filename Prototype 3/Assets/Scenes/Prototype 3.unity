@@ -454,7 +454,7 @@ MonoBehaviour:
   - {fileID: 4699101338837672160, guid: 27908a346539ba644b0cd1c1ae6a6dea, type: 3}
   - {fileID: 8818480199702448486, guid: 73deca0afedc25548912f031cb4fc246, type: 3}
   - {fileID: 1722998134541920798, guid: 64b3a7edfbd082643bbde734de6f071d, type: 3}
-  - {fileID: 8818480199702448486, guid: 31e7af82d82d8024181df77475d4d245, type: 3}
+  - {fileID: 4512258442444280971, guid: 52bb9743c9f1f974ab56bc07cc29a6b6, type: 3}
 --- !u!114 &524277973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,7 +608,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 5.4, z: -21.46}
+  m_LocalPosition: {x: 8.45, y: 3.68, z: -21.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1117,8 +1117,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.66, y: 3, z: 1}
-  m_Center: {x: 0, y: 1.51, z: 0}
+  m_Size: {x: 1.66, y: 1.4150426, z: 1}
+  m_Center: {x: -0, y: 2.13798, z: 0}
+--- !u!65 &1733868376
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1733868372}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.66, y: 1.6131201, z: 1}
+  m_Center: {x: -0, y: 0.7609613, z: 0}
 --- !u!4 &1733868377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 2f8d00bf5057f624e949aef802595da9, type: 3}
@@ -1273,10 +1286,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allowedAirJumps: 1
-  jumpForce: 20
+  jumpForce: 17.5
   fallVelocityMultiplier: 2.5
   lowJumpVelocityMultiplier: 2
---- !u!114 &1733868383
+--- !u!114 &1733868384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1285,11 +1298,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1733868372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 755a269e2a8e3f246b598926be96b196, type: 3}
+  m_Script: {fileID: 11500000, guid: 905122f5e6b4ddb41b42bbd21b2231f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSpeedMultiplier: 1.75
-  animationSpeedMultiplier: 3
+  upperCollider: {fileID: 1733868375}
 --- !u!1 &1734943280
 GameObject:
   m_ObjectHideFlags: 0

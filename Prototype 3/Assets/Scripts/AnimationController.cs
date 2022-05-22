@@ -9,6 +9,7 @@ public class AnimationController : MonoBehaviour
     const string SprintSpeedMultiplier = "SprintSpeedMultiplier_f";
     const string SpeedParam = "Speed_f";
     const string DeathParam = "Death_b";
+    const string SlideParam = "Slide_b";
     #endregion
 
     void Awake()
@@ -21,21 +22,17 @@ public class AnimationController : MonoBehaviour
         animator.SetFloat(SpeedParam, GameSpeed.CurrentGameSpeed);
     }
 
-    public void PlayJumpAnimation() {
-        animator.SetTrigger(JumpTrigger);
-    }
+    public void PlayJumpAnimation() => animator.SetTrigger(JumpTrigger);
 
-    public void PlayDeathAnimation() {
-        animator.SetBool(DeathParam, true);
-    }
+    public void PlayDeathAnimation() => animator.SetBool(DeathParam, true);
 
-    public void PlaySprintAnimation(float sprintSpeedMultiplier) {
-        animator.SetFloat(SprintSpeedMultiplier, sprintSpeedMultiplier);
-    }
+    public void PlaySprintAnimation(float sprintSpeedMultiplier) => animator.SetFloat(SprintSpeedMultiplier, sprintSpeedMultiplier);
 
-    public void StopSprintAnimation() {
-        animator.SetFloat(SprintSpeedMultiplier, 1);
-    }
+    public void StopSprintAnimation() => animator.SetFloat(SprintSpeedMultiplier, 1);
+
+    public void PlaySlideAnimation() => animator.SetBool(SlideParam, true);
+
+    public void StopSlideAnimation() => animator.SetBool(SlideParam, false);
 
     void OnAnimatorMove()
     {
@@ -43,7 +40,7 @@ public class AnimationController : MonoBehaviour
         if (stateInfo.IsTag("Walk Entry")) {
             Vector3 pos = transform.position;
             Vector3 endPos = pos;
-            endPos.x += 5;
+            endPos.x += 6.5f;
             transform.position = Vector3.Lerp(pos, endPos, Time.deltaTime);
             // animator.ApplyBuiltinRootMotion();  // this didn't work so I handled the motion manually
         }
